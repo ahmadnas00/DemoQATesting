@@ -30,12 +30,12 @@ public class SmokeTests {
     }
 
     @Test
-    public void TestSearchBoxFirstFullName() {
+    public void TestSearchBoxByFirstName() {
         assertTrue(mainpage.SearchFor(FIRST_NAME_1).GetFirstOption().contains(FIRST_NAME_1));
     }
 
     @Test
-    public void TestSortingByFirstNameUP() {
+    public void TestSortingByFirstName() {
         assertTrue(mainpage.ClickFirstName().GetFirstOption().contains(FIRST_NAME_2));
     }
 
@@ -45,7 +45,7 @@ public class SmokeTests {
     }
 
     @Test
-    public void TestEmptySearchResult() {
+    public void TestSearchForEmptyResult() {
         assertTrue(mainpage.SearchFor(FIRST_NAME_4).GotNoData());
     }
 
