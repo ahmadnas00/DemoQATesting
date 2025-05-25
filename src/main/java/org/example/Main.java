@@ -3,63 +3,51 @@ package org.example;
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
+import static org.example.MainPageLocators.*;
+
+
 
 public class Main {
+    public static String mainURL = MainPageLocators.mainURL;
     private static WebDriver driver;
-    public static final String mainURL = "https://demoqa.com/webtables";
-    private static By SearchBox = By.id("searchBox");
-    private By firstRow = By.cssSelector(".rt-tbody .rt-tr");
-    private By FirstRowCells = By.cssSelector(".rt-td");
-    private By FirstNameHeader = By.xpath("//div[text()='First Name']");
-    private By LastNameHeader = By.xpath("//div[text()='Last Name']");
-    private By AgeHeader = By.xpath("//div[text()='Age']");
-    private By EmailHeader = By.xpath("//div[text()='Email']");
-    private By Salary = By.xpath("//div[text()='Salary']");
-    private By Department = By.xpath("//div[text()='Department']");
-    private By DeleteButton = By.id("delete-record-1");
-    private By EditButton = By.id("edit-record-1");
-    private By ChangeFirstNameBar = By.id("firstName");
-    private By SubmitIcon = By.id("submit");
-    private By ChangeLastNameBar = By.id("lastName");
-    private By ChangeAge = By.id("age");
-    private By ChangeEmail = By.id("userEmail");
-    private By ChangeSalary = By.id("salary");
-    private By ChangeDep = By.id("department");
-    private By AddButton = By.id("addNewRecordButton");
-    private By NoData = By.className("rt-noData");
 
 
-    public Main(WebDriver driver){
+    public Main(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getTitle().contains("DEMOQA")) {
-            throw new IllegalStateException("This is not the expected page. Title found: " + driver.getTitle());
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.titleContains("DEMOQA"));
+        } catch (TimeoutException e) {
+            throw new IllegalStateException("Timeout waiting for page title to contain 'DEMOQA'. Current title: " + driver.getTitle());
         }
     }
 
     public Main SearchFor(String name) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(SearchBox));
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MainPageLocators.SearchBox));
         WebElement searchField = driver.findElement(SearchBox);
         searchField.clear();
         searchField.sendKeys(name);
         searchField.sendKeys(Keys.RETURN);
-
         return this;
     }
 
 
-
     public List<String> GetFirstOption() {
+        try {
+            Thread.sleep(100); // Wait for 0.5 seconds
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         WebElement firstRowLine = wait.until(ExpectedConditions.presenceOfElementLocated(firstRow));
-
         List<WebElement> cells = firstRowLine.findElements(FirstRowCells);
         List<String> cellTexts = new ArrayList<>();
         for (WebElement cell : cells) {
@@ -126,9 +114,10 @@ public class Main {
         return this;
     }
 
-    public void Submit() {
+    public Main Submit() {
         WebElement SubmitButton = driver.findElement(SubmitIcon);
         SubmitButton.click();
+        return this;
     }
 
     public Main ChangeLastName(String newlastname) {
@@ -212,12 +201,21 @@ public class Main {
     public boolean GotNoData() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
-            WebElement noRowsElement = wait.until(
+            WebElement Element = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(NoData)
             );
             return true;
         } catch (TimeoutException e) {
             return false;
+        }
+    }
+
+    public boolean isAddWindowOpen() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+            return !wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("registration-form-modal")));
+        } catch (TimeoutException e) {
+            return true; // Still visible → modal still open
         }
     }
 

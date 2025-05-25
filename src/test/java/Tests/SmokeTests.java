@@ -1,16 +1,14 @@
+package Tests;
 
-
-import org.checkerframework.checker.units.qual.C;
 import org.example.Main;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import static org.junit.jupiter.api.Assertions.*;
+import static Tests.TestData.*;
 
 
 public class SmokeTests {
@@ -33,34 +31,35 @@ public class SmokeTests {
 
     @Test
     public void TestSearchBoxFirstFullName() {
-        assertTrue(mainpage.SearchFor("Cierra").GetFirstOption().contains("Cierra"));
+        assertTrue(mainpage.SearchFor(FIRST_NAME_1).GetFirstOption().contains(FIRST_NAME_1));
     }
 
     @Test
     public void TestSortingByFirstNameUP() {
-        assertTrue(mainpage.ClickFirstName().GetFirstOption().contains("Alden"));
+        assertTrue(mainpage.ClickFirstName().GetFirstOption().contains(FIRST_NAME_2));
     }
 
     @Test
     public void TestDeleteRow(){
-        assertTrue(mainpage.SearchFor("Cierra").DeleteFirstOption().SearchFor("Cierra").GotNoData());
+        assertTrue(mainpage.SearchFor(FIRST_NAME_1).DeleteFirstOption().SearchFor(FIRST_NAME_1).GotNoData());
     }
 
     @Test
     public void TestEmptySearchResult() {
-        assertTrue(mainpage.SearchFor("aaaaaa").GotNoData());
+        assertTrue(mainpage.SearchFor(FIRST_NAME_4).GotNoData());
     }
 
     @Test
     public void TestAddNewClient() {
         assertTrue(mainpage.ClickAdd()
-                .AddFirstName("Ahmad")
-                .AddLastName("Nassar")
-                .AddEmail("Ahmad@email.com")
-                .AddAge("24")
-                .AddSalary("99999")
-                .AddDepartment("Engineering")
-                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad"));
+                .AddFirstName(FIRST_NAME_5)
+                .AddLastName(LAST_NAME_5)
+                .AddEmail(EMAIL_5)
+                .AddAge(AGE_5)
+                .AddSalary(SALARY_5)
+                .AddDepartment(DEPARTMENT_5)
+                .Submit()
+                .SearchFor(FIRST_NAME_5).GetFirstOption().contains(FIRST_NAME_5));
     }
 
     @AfterEach

@@ -1,16 +1,15 @@
+package Tests;
+
 import org.example.Main;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.*;
+import static Tests.TestData.*;
 
 
 public class UnitTests {
@@ -32,187 +31,187 @@ public class UnitTests {
 
     @Test
     public void TestSearchBoxFirstFullName() {
-        assertTrue(mainpage.SearchFor("Cierra").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("Alden").GetFirstOption().contains("Alden"));
-        assertTrue(mainpage.SearchFor("Kierra").GetFirstOption().contains("Kierra"));
+        assertTrue(mainpage.SearchFor(FIRST_NAME_1).GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor(FIRST_NAME_2).GetFirstOption().contains(FIRST_NAME_2));
+        assertTrue(mainpage.SearchFor(FIRST_NAME_3).GetFirstOption().contains(FIRST_NAME_3));
     }
 
     @Test
     public void TestSearchBoxFirstNameSmall() {
-        assertTrue(mainpage.SearchFor("cierra").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("alden").GetFirstOption().contains("Alden"));
-        assertTrue(mainpage.SearchFor("kierra").GetFirstOption().contains("Kierra"));
+        assertTrue(mainpage.SearchFor("cierra").GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor("alden").GetFirstOption().contains(FIRST_NAME_2));
+        assertTrue(mainpage.SearchFor("kierra").GetFirstOption().contains(FIRST_NAME_3));
     }
 
     @Test
     public void TestSearchBoxFirstNameCapital() {
-        assertTrue(mainpage.SearchFor("CIERRA").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("ALDEN").GetFirstOption().contains("Alden"));
-        assertTrue(mainpage.SearchFor("KIERRA").GetFirstOption().contains("Kierra"));
+        assertTrue(mainpage.SearchFor("CIERRA").GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor("ALDEN").GetFirstOption().contains(FIRST_NAME_2));
+        assertTrue(mainpage.SearchFor("KIERRA").GetFirstOption().contains(FIRST_NAME_3));
     }
 
     @Test
     public void TestSearchBoxFirstNameShort() {
-        assertTrue(mainpage.SearchFor("Cierr").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("Cier").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("Cie").GetFirstOption().contains("Cierra"));
-        assertTrue(mainpage.SearchFor("Ci").GetFirstOption().contains("Cierra"));
+        assertTrue(mainpage.SearchFor("Cierr").GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor("Cier").GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor("Cie").GetFirstOption().contains(FIRST_NAME_1));
+        assertTrue(mainpage.SearchFor("Ci").GetFirstOption().contains(FIRST_NAME_1));
     }
 
     @Test
     public void TestSearchBoxAge() {
-        assertTrue(mainpage.SearchFor("39").GetFirstOption().contains("39"));
-        assertTrue(mainpage.SearchFor("3").GetFirstOption().contains("39"));
-        assertTrue(mainpage.SearchFor("45").GetFirstOption().contains("45"));
-        assertTrue(mainpage.SearchFor("4").GetFirstOption().contains("45"));
-        assertTrue(mainpage.SearchFor("29").GetFirstOption().contains("29"));
+        assertTrue(mainpage.SearchFor("39").GetFirstOption().contains(AGE_1));
+        assertTrue(mainpage.SearchFor("3").GetFirstOption().contains(AGE_1));
+        assertTrue(mainpage.SearchFor("45").GetFirstOption().contains(AGE_2));
+        assertTrue(mainpage.SearchFor("4").GetFirstOption().contains(AGE_2));
+        assertTrue(mainpage.SearchFor("29").GetFirstOption().contains(AGE_3));
     }
 
     @Test
     public void TestSearchBoxSalary() {
-        assertTrue(mainpage.SearchFor("10000").GetFirstOption().contains("10000"));
-        assertTrue(mainpage.SearchFor("10").GetFirstOption().contains("10000"));
-        assertTrue(mainpage.SearchFor("12000").GetFirstOption().contains("12000"));
+        assertTrue(mainpage.SearchFor(SALARY_1).GetFirstOption().contains(SALARY_1));
+        assertTrue(mainpage.SearchFor("10").GetFirstOption().contains(SALARY_1));
+        assertTrue(mainpage.SearchFor(SALARY_2).GetFirstOption().contains(SALARY_2));
     }
 
     @Test
     public void TestSearchBoxDepartment() {
-        assertTrue(mainpage.SearchFor("Insurance").GetFirstOption().contains("Insurance"));
-        assertTrue(mainpage.SearchFor("Compliance").GetFirstOption().contains("Compliance"));
-        assertTrue(mainpage.SearchFor("Legal").GetFirstOption().contains("Legal"));
+        assertTrue(mainpage.SearchFor(DEPARTMENT_1).GetFirstOption().contains(DEPARTMENT_1));
+        assertTrue(mainpage.SearchFor(DEPARTMENT_2).GetFirstOption().contains(DEPARTMENT_2));
+        assertTrue(mainpage.SearchFor(DEPARTMENT_3).GetFirstOption().contains(DEPARTMENT_3));
     }
 
     @Test
     public void TestSortingByFirstNameUP() {
-        assertTrue(mainpage.ClickFirstName().GetFirstOption().contains("Alden"));
+        assertTrue(mainpage.ClickFirstName().GetFirstOption().contains(FIRST_NAME_2));
     }
 
     @Test
     public void TestSortingByFirstNameDown() {
-        assertTrue(mainpage.ClickFirstName().ClickFirstName().GetFirstOption().contains("Kierra"));
+        assertTrue(mainpage.ClickFirstName().ClickFirstName().GetFirstOption().contains(FIRST_NAME_3));
     }
 
     @Test
     public void TestSortingByLastnameUP() {
-        assertTrue(mainpage.ClickLastName().GetFirstOption().contains("Cantrell"));
+        assertTrue(mainpage.ClickLastName().GetFirstOption().contains(LAST_NAME_2));
     }
 
     @Test
     public void TestSortingByLastnameDown() {
-        assertTrue(mainpage.ClickLastName().ClickLastName().GetFirstOption().contains("Vega"));
+        assertTrue(mainpage.ClickLastName().ClickLastName().GetFirstOption().contains(LAST_NAME_1));
     }
 
     @Test
     public void TestSortingByAgeUP() {
-        assertTrue(mainpage.ClickAge().GetFirstOption().contains("29"));
+        assertTrue(mainpage.ClickAge().GetFirstOption().contains(AGE_3));
     }
 
     @Test
     public void TestSortingByAgeDown() {
-        assertTrue(mainpage.ClickAge().ClickAge().GetFirstOption().contains("45"));
+        assertTrue(mainpage.ClickAge().ClickAge().GetFirstOption().contains(AGE_2));
     }
 
     @Test
     public void TestSortingByEmailUP() {
-        assertTrue(mainpage.ClickEmail().GetFirstOption().contains("alden@example.com"));
+        assertTrue(mainpage.ClickEmail().GetFirstOption().contains(EMAIL_2));
     }
 
     @Test
     public void TestSortingByEmailDown() {
-        assertTrue(mainpage.ClickEmail().ClickEmail().GetFirstOption().contains("kierra@example.com"));
+        assertTrue(mainpage.ClickEmail().ClickEmail().GetFirstOption().contains(EMAIL_3));
     }
 
     @Test
     public void TestSortingBySalaryUP() {
-        assertTrue(mainpage.ClickSalary().GetFirstOption().contains("2000"));
+        assertTrue(mainpage.ClickSalary().GetFirstOption().contains(SALARY_3));
     }
 
     @Test
     public void TestSortingBySalaryDown() {
-        assertTrue(mainpage.ClickSalary().ClickSalary().GetFirstOption().contains("12000"));
+        assertTrue(mainpage.ClickSalary().ClickSalary().GetFirstOption().contains(SALARY_2));
     }
 
     @Test
     public void TestSortingByDepartmentUp() {
-        assertTrue(mainpage.ClickDepartment().GetFirstOption().contains("Compliance"));
+        assertTrue(mainpage.ClickDepartment().GetFirstOption().contains(DEPARTMENT_2));
     }
 
     @Test
     public void TestSortingByDepartmentDown() {
-        assertTrue(mainpage.ClickDepartment().ClickDepartment().GetFirstOption().contains("Legal"));
+        assertTrue(mainpage.ClickDepartment().ClickDepartment().GetFirstOption().contains(DEPARTMENT_3));
     }
 
     @Test
     public void TestEditFirstName() {
-        assertTrue(mainpage.SearchFor("Cierra").EditFirstOption().ChangeFirstName("Mike")
-                .Submit().SearchFor("Mike").GetFirstOption().contains("Mike"));
+        assertTrue(mainpage.SearchFor(FIRST_NAME_1).EditFirstOption().ChangeFirstName(FIRST_NAME_4)
+                .Submit().SearchFor(FIRST_NAME_4).GetFirstOption().contains(FIRST_NAME_4));
     }
 
     @Test
     public void TestEditLastName() {
-        assertTrue(mainpage.SearchFor("Vega").EditFirstOption().ChangeLastName("Stark")
-                .Submit().SearchFor("Stark").GetFirstOption().contains("Stark"));
+        assertTrue(mainpage.SearchFor(LAST_NAME_1).EditFirstOption().ChangeLastName(LAST_NAME_4)
+                .Submit().SearchFor(LAST_NAME_4).GetFirstOption().contains(LAST_NAME_4));
     }
 
     @Test
     public void TestEditAge() {
-        assertTrue(mainpage.SearchFor("39").EditFirstOption().ChangeAge("40")
-                .Submit().SearchFor("40").GetFirstOption().contains("40"));
+        assertTrue(mainpage.SearchFor(AGE_1).EditFirstOption().ChangeAge(AGE_4)
+                .Submit().SearchFor(AGE_4).GetFirstOption().contains(AGE_4));
     }
 
     @Test
     public void TestEditEmail() {
-        assertTrue(mainpage.SearchFor("Vega").EditFirstOption().ChangeEmail("NewVega@example.com")
-                .Submit().SearchFor("NewVega@example.com").GetFirstOption().contains("NewVega@example.com"));
+        assertTrue(mainpage.SearchFor(LAST_NAME_1).EditFirstOption().ChangeEmail(EMAIL_4)
+                .Submit().SearchFor(EMAIL_4).GetFirstOption().contains(EMAIL_4));
     }
 
     @Test
     public void TestEditSalaray() {
-        assertTrue(mainpage.SearchFor("10000").EditFirstOption().ChangeSalary("99")
-                .Submit().SearchFor("99").GetFirstOption().contains("99"));
+        assertTrue(mainpage.SearchFor(SALARY_1).EditFirstOption().ChangeSalary(SALARY_4)
+                .Submit().SearchFor(SALARY_4).GetFirstOption().contains(SALARY_4));
     }
 
     @Test
     public void TestEditDepartment() {
-        assertTrue(mainpage.SearchFor("Insurance").EditFirstOption().ChangeDepartment("IT")
-                .Submit().SearchFor("IT").GetFirstOption().contains("IT"));
+        assertTrue(mainpage.SearchFor(DEPARTMENT_1).EditFirstOption().ChangeDepartment(DEPARTMENT_4)
+                .Submit().SearchFor(DEPARTMENT_4).GetFirstOption().contains(DEPARTMENT_4));
     }
 
     @Test
     public void TestAddNewClient() {
         assertTrue(mainpage.ClickAdd()
-                .AddFirstName("Ahmad")
-                .AddLastName("Nassar")
-                .AddEmail("Ahmad@email.com")
-                .AddAge("24")
-                .AddSalary("99999")
-                .AddDepartment("Engineering")
-                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad"));
+                .AddFirstName(FIRST_NAME_5)
+                .AddLastName(LAST_NAME_5)
+                .AddEmail(EMAIL_5)
+                .AddAge(AGE_5)
+                .AddSalary(SALARY_5)
+                .AddDepartment(DEPARTMENT_5)
+                .Submit().SearchFor(FIRST_NAME_5).GetFirstOption().contains(FIRST_NAME_5));
     }
 
     @Test
     public void TestSameEmailDifferentUsers() {
-        mainpage.ClickAdd()
-                .AddFirstName("Ahmad")
-                .AddLastName("Nassar")
-                .AddEmail("alden@example.com")  // This email has already been used !
-                .AddAge("24")
-                .AddSalary("99999")
-                .AddDepartment("Engineering")
-                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad");
+        assertTrue(mainpage.ClickAdd()
+                .AddFirstName(FIRST_NAME_5)
+                .AddLastName(LAST_NAME_5)
+                .AddEmail(EMAIL_2)  // This email has already been used !
+                .AddAge(AGE_5)
+                .AddSalary(SALARY_5)
+                .AddDepartment(DEPARTMENT_5)
+                .Submit().SearchFor(FIRST_NAME_5).GetFirstOption().contains(FIRST_NAME_5));
 
     }
 
     @Test
     public void EnterThreeDigitsAge() {
         assertFalse(mainpage.ClickAdd()
-                .AddFirstName("Ahmad")
-                .AddLastName("Nassar")
-                .AddEmail("Ahmad@email.com")
-                .AddAge("100")
-                .AddSalary("99999")
-                .AddDepartment("Engineering")
-                .Submit().SearchFor("Ahmad").GetFirstOption().contains("100"));
+                .AddFirstName(FIRST_NAME_5)
+                .AddLastName(LAST_NAME_5)
+                .AddEmail(EMAIL_5)
+                .AddAge(AGE_6)
+                .AddSalary(SALARY_5)
+                .AddDepartment(DEPARTMENT_5)
+                .Submit().SearchFor(FIRST_NAME_5).GetFirstOption().contains(AGE_6));
     }
 
     @Test
@@ -230,12 +229,12 @@ public class UnitTests {
     @Test
     public void EnterStringAge() {
         assertTrue(mainpage.ClickAdd()
-                .AddFirstName("Ahmad")
-                .AddLastName("Nassar")
-                .AddEmail("ahmad@email.com")
-                .AddAge("AF")
-                .AddSalary("1000")
-                .AddDepartment("IT")
+                .AddFirstName(FIRST_NAME_5)
+                .AddLastName(LAST_NAME_5)
+                .AddEmail(EMAIL_5)
+                .AddAge(AGE_7)
+                .AddSalary(SALARY_5)
+                .AddDepartment(DEPARTMENT_5)
                 .Submit().isAddWindowOpen());
     }
 
