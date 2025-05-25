@@ -1,5 +1,12 @@
-<h1>🧪 DemoQA Testing</h1>
-<hr>
+<p align="center">
+  <img src="https://demoqa.com/images/Toolsqa.jpg" alt="DemoQA Logo" width="300">
+</p>
+
+<h1 align="center">🧪 DemoQA Testing </h1>
+<h1 align="center"> By: Ahmad Nassar </h1>
+
+
+
 <p>📌 <strong>Developed and implemented an automated test suite for a dynamic web table management interface using Java and Selenium.</strong></p>
 
 <h2>🚀 Technologies Used</h2>
@@ -58,8 +65,6 @@
 <ul>
   <li>📊 Add detailed test reports with tools like Allure or ExtentReports.</li>
   <li>🔁 Expand the number of test cases for broader coverage.</li>
-  <li>🌐 Add cross-browser testing (e.g., Firefox, Edge).</li>
-  <li>📱 Implement mobile view emulation tests.</li>
 </ul>
 
 <h2>📬 Contact</h2>
