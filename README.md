@@ -66,7 +66,7 @@ cd DemoQATesting</code></pre>
 <hr>
 <ul>
   <li>📊 Add detailed test reports with tools like Allure or ExtentReports.</li>
-  <li>🔁 Expand the number of test cases for broader coverage.</li>
+  <li>🔁 Expand the number of test cases for broader coverage. To achieve 100% coverage, include currently untested parts such as the Page View option.</li>
 </ul>
 
 <h2>📬 Contact</h2>
