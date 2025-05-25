@@ -2,9 +2,8 @@
   <img src="https://demoqa.com/images/Toolsqa.jpg" alt="DemoQA Logo" width="300">
 </p>
 
-<h1 align="center">🧪 DemoQA Testing </h1>
-<h1 align="center"> By: Ahmad Nassar </h1>
-
+<h1 align="center">🧪 DemoQA Testing</h1>
+<h3 align="center">By: Ahmad Nassar</h3>
 
 
 <p>📌 <strong>Developed and implemented an automated test suite for a dynamic web table management interface using Java and Selenium.</strong></p>
