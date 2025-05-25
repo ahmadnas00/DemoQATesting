@@ -1,72 +1,46 @@
-<h1>🧪 DemoQA Testing</h1>
-<hr>
-<p>📌 <strong>Developed and implemented an automated test suite for a dynamic web table management interface using Java and Selenium.</strong></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DemoQATesting Retrospective</title>
+</head>
+<body>
 
-<h2>🚀 Technologies Used</h2>
-<hr>
+  <h1>DemoQATesting Retrospective</h1>
+
+<h2>🎯 Goals</h2>
+<p>The goal of this project was to test the website's functionality and quality using QA methods.</p>
+
+<h2>✅ What Went Well</h2>
 <ul>
-  <li>☕ <strong>Java</strong></li>
-  <li>🧭 <strong>Selenium WebDriver</strong></li>
-  <li>✅ <strong>JUnit</strong></li>
-  <li>📦 <strong>Maven</strong> (or Gradle)</li>
-  <li>🌐 <strong>ChromeDriver</strong></li>
-  <li>🧠 <strong>IDE:</strong> IntelliJ IDEA (or any Java IDE)</li>
+  <li>Test scenarios were well-defined and covered key functionalities</li>
+  <li>Automation scripts ran smoothly with no bugs</li>
+  <li>Documentation was clear and up to date</li>
 </ul>
 
-<h2>✨ Features</h2>
-<hr>
-<ul>
-  <li>🔍 <strong>Automated Search Testing:</strong> Verifies search functionality with valid and invalid inputs.</li>
-  <li>⏱️ <strong>Dynamic Element Handling:</strong> Waits for elements to appear using explicit waits.</li>
-  <li>👻 <strong>Headless Execution:</strong> Tests can run in headless mode for faster execution.</li>
-  <li>🔁 <strong>Parameterized Tests:</strong> Supports test cases with various input values.</li>
+
+<h2>❌ What Didn’t Go Well</h2>
+  <ul>
+  <li>Some test scenarios were added late in the process, causing delays</li>
+<li>Time management was challenging due to overlapping tasks and a busy schedule</li>
+
 </ul>
 
-<h2>🛠️ Setup</h2>
-<hr>
-
-<h3>📋 Requirements</h3>
+<h2>🔧 What to Improve</h2>
 <ul>
-  <li>Java 17+</li>
-  <li>Selenium WebDriver</li>
-  <li>JUnit 5 (or TestNG)</li>
-  <li>ChromeDriver</li>
-  <li>Maven (or Gradle)</li>
-  <li>(Optional) IntelliJ IDEA</li>
+  <li>Add detailed test reports with tools like Allure or ExtentReports</li>
+  <li>Expand the number of test cases for broader coverage</li>
+  <li>Include more edge case and negative scenario testing</li>
+  <li>Improve time estimation for test planning and execution</li>
 </ul>
 
-<h3>📦 Installation Steps</h3>
-<ol>
-  <li><strong>Clone the repository</strong><br>
-    <code>git clone https://github.com/ahmadnas00/DemoQATesting.git</code><br>
-    <code>cd DemoQATesting</code>
-  </li>
-  <li><strong>Install dependencies</strong><br>
-    With Maven:<br>
-    <code>mvn clean install</code>
-  </li>
-  <li><strong>Ensure ChromeDriver is set up</strong><br>
-    <a href="https://chromedriver.chromium.org/downloads" target="_blank">Download ChromeDriver</a> and add it to your system PATH.
-  </li>
-  <li><strong>Run the tests</strong><br>
-    <code>mvn test</code>
-  </li>
-</ol>
 
-<h2>🧩 Improvements</h2>
-<hr>
-<ul>
-  <li>📊 Add detailed test reports with tools like Allure or ExtentReports.</li>
-  <li>🔁 Expand the number of test cases for broader coverage.</li>
-</ul>
+<h2>💬 Team Feedback </h2>
+<p>“WhatsApp messages helped us stay aligned and communicate quickly.”</p>
 
-<h2>📬 Contact</h2>
-<hr>
-<p>
-  <a href="https://www.linkedin.com/in/ahmad0nassar/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="40px" style="margin-right: 20px;">
-  </a>
-  <a href="https://github.com/ahmadnas00" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40px">
-  </a>
-</p>
+<h2>📆 Date & Team</h2>
+  <p>Date: 2025-05-25</p>
+  <p>Team: BeyondDev Team </p>
+
+</body>
+</html>
