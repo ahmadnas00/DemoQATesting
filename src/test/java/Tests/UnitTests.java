@@ -23,7 +23,6 @@ public class UnitTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless"); // run without GUI
         options.addArguments("--disable-gpu"); // optional but recommended
-
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(Main.mainURL);
@@ -144,62 +143,101 @@ public class UnitTests {
     }
 
     @Test
-    public void TestDeleteRow(){
-        mainpage.SearchFor("Cierra").DeleteFirstOption();
-        assertFalse(mainpage.SearchFor("Cierra").GetFirstOption().contains("Cierra"));
+    public void TestEditFirstName() {
+        assertTrue(mainpage.SearchFor("Cierra").EditFirstOption().ChangeFirstName("Mike")
+                .Submit().SearchFor("Mike").GetFirstOption().contains("Mike"));
     }
 
     @Test
-    public void TestEditFirstName(){
-        mainpage.SearchFor("Cierra").EditFirstOption().ChangeFirstName("Mike").Submit();
-        assertTrue(mainpage.SearchFor("Mike").GetFirstOption().contains("Mike"));
+    public void TestEditLastName() {
+        assertTrue(mainpage.SearchFor("Vega").EditFirstOption().ChangeLastName("Stark")
+                .Submit().SearchFor("Stark").GetFirstOption().contains("Stark"));
     }
 
     @Test
-    public void TestEditLastName(){
-        mainpage.SearchFor("Vega").EditFirstOption().ChangeLastName("Stark").Submit();
-        assertTrue(mainpage.SearchFor("Stark").GetFirstOption().contains("Stark"));
+    public void TestEditAge() {
+        assertTrue(mainpage.SearchFor("39").EditFirstOption().ChangeAge("40")
+                .Submit().SearchFor("40").GetFirstOption().contains("40"));
     }
 
     @Test
-    public void TestEditAge(){
-        mainpage.SearchFor("39").EditFirstOption().ChangeAge("40").Submit();
-        assertTrue(mainpage.SearchFor("40").GetFirstOption().contains("40"));
+    public void TestEditEmail() {
+        assertTrue(mainpage.SearchFor("Vega").EditFirstOption().ChangeEmail("NewVega@example.com")
+                .Submit().SearchFor("NewVega@example.com").GetFirstOption().contains("NewVega@example.com"));
     }
 
     @Test
-    public void TestEditEmail(){
-        mainpage.SearchFor("Vega").EditFirstOption().ChangeEmail("NewVega@example.com").Submit();
-        assertTrue(mainpage.SearchFor("NewVega@example.com").GetFirstOption().contains("NewVega@example.com"));
+    public void TestEditSalaray() {
+        assertTrue(mainpage.SearchFor("10000").EditFirstOption().ChangeSalary("99")
+                .Submit().SearchFor("99").GetFirstOption().contains("99"));
     }
 
     @Test
-    public void TestEditSalaray(){
-        mainpage.SearchFor("10000").EditFirstOption().ChangeSalary("99").Submit();
-        assertTrue(mainpage.SearchFor("99").GetFirstOption().contains("99"));
+    public void TestEditDepartment() {
+        assertTrue(mainpage.SearchFor("Insurance").EditFirstOption().ChangeDepartment("IT")
+                .Submit().SearchFor("IT").GetFirstOption().contains("IT"));
     }
 
     @Test
-    public void TestEditDepartment(){
-        mainpage.SearchFor("Insurance").EditFirstOption().ChangeDepartment("IT").Submit();
-        assertTrue(mainpage.SearchFor("IT").GetFirstOption().contains("IT"));
-    }
-
-    @Test
-    public void TestAddNewClient(){
-        mainpage.ClickAdd()
+    public void TestAddNewClient() {
+        assertTrue(mainpage.ClickAdd()
                 .AddFirstName("Ahmad")
                 .AddLastName("Nassar")
                 .AddEmail("Ahmad@email.com")
                 .AddAge("24")
                 .AddSalary("99999")
                 .AddDepartment("Engineering")
-                .Submit();
+                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad"));
+    }
 
-        assertTrue(mainpage.SearchFor("Ahmad").GetFirstOption().contains("Ahmad"));
+    @Test
+    public void TestSameEmailDifferentUsers() {
+        mainpage.ClickAdd()
+                .AddFirstName("Ahmad")
+                .AddLastName("Nassar")
+                .AddEmail("alden@example.com")  // This email has already been used !
+                .AddAge("24")
+                .AddSalary("99999")
+                .AddDepartment("Engineering")
+                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad");
 
     }
 
+    @Test
+    public void EnterThreeDigitsAge() {
+        assertFalse(mainpage.ClickAdd()
+                .AddFirstName("Ahmad")
+                .AddLastName("Nassar")
+                .AddEmail("Ahmad@email.com")
+                .AddAge("100")
+                .AddSalary("99999")
+                .AddDepartment("Engineering")
+                .Submit().SearchFor("Ahmad").GetFirstOption().contains("100"));
+    }
+
+    @Test
+    public void EnterEmptyInputs() {
+        assertTrue(mainpage.ClickAdd()
+                .AddFirstName("")
+                .AddLastName("")
+                .AddEmail("")
+                .AddAge("")
+                .AddSalary("")
+                .AddDepartment("")
+                .Submit().isAddWindowOpen());
+    }
+
+    @Test
+    public void EnterStringAge() {
+        assertTrue(mainpage.ClickAdd()
+                .AddFirstName("Ahmad")
+                .AddLastName("Nassar")
+                .AddEmail("ahmad@email.com")
+                .AddAge("AF")
+                .AddSalary("1000")
+                .AddDepartment("IT")
+                .Submit().isAddWindowOpen());
+    }
 
 
 

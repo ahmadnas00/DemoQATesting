@@ -1,3 +1,5 @@
+
+
 import org.checkerframework.checker.units.qual.C;
 import org.example.Main;
 import org.junit.jupiter.api.AfterEach;
@@ -6,17 +8,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SmokeTests {
     private static Main mainpage;
     private static WebDriver driver;
 
 
+
     @BeforeEach
     public void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // run without GUI
+        options.addArguments("--disable-gpu"); // optional but recommended
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(Main.mainURL);
         mainpage = new Main(driver);
@@ -34,8 +43,7 @@ public class SmokeTests {
 
     @Test
     public void TestDeleteRow(){
-        mainpage.SearchFor("Cierra").DeleteFirstOption();
-        assertFalse(mainpage.SearchFor("Cierra").GetFirstOption().contains("Cierra"));
+        assertTrue(mainpage.SearchFor("Cierra").DeleteFirstOption().SearchFor("Cierra").GotNoData());
     }
 
     @Test
@@ -44,23 +52,16 @@ public class SmokeTests {
     }
 
     @Test
-    public void TestAddNewClient(){
-        mainpage.ClickAdd()
+    public void TestAddNewClient() {
+        assertTrue(mainpage.ClickAdd()
                 .AddFirstName("Ahmad")
                 .AddLastName("Nassar")
                 .AddEmail("Ahmad@email.com")
                 .AddAge("24")
                 .AddSalary("99999")
-                .AddDepartment("IT")
-                .Submit();
-
-        assertTrue(mainpage.SearchFor("Ahmad").GetFirstOption()
-                .contains("Ahmad"));
-
+                .AddDepartment("Engineering")
+                .Submit().SearchFor("Ahmad").GetFirstOption().contains("Ahmad"));
     }
-
-
-
 
     @AfterEach
     public void tearDown() {
