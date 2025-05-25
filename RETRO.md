@@ -21,10 +21,11 @@
 
 <h2>❌ What Didn’t Go Well</h2>
   <ul>
-  <li>Some test scenarios were added late in the process, causing delays</li>
-<li>Time management was challenging due to overlapping tasks and a busy schedule</li>
-
+  <li>Locating elements with Selenium was challenging due to missing unique IDs; had to rely on class names or other attributes.</li>
+  <li>Time management was challenging due to overlapping tasks and a busy schedule</li>
+  <li>Testing on the live version required a steady internet connection, which occasionally affected test stability compared to a local environment.</li>
 </ul>
+
 
 <h2>🔧 What to Improve</h2>
 <ul>
