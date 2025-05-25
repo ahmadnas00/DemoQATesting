@@ -68,6 +68,44 @@ cd DemoQATesting</code></pre>
 </ol>
 
 
+<h3>📊 Test Results Summary</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Class</th>
+      <th>Tests</th>
+      <th>Errors</th>
+      <th>Failures</th>
+      <th>Skipped</th>
+      <th>Success Rate</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌟</td>
+      <td><a href="#">SmokeTests</a></td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>100%</td>
+      <td>24.71 s</td>
+    </tr>
+    <tr>
+      <td>🌤️</td>
+      <td><a href="#">UnitTests</a></td>
+      <td>30</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>96.7%</td>
+      <td>144.6 s</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 <h2>🧩 Improvements</h2>
