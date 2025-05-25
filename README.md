@@ -100,7 +100,7 @@ cd DemoQATesting</code></pre>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>96.7%</td>
+      <td>100%</td>
       <td>144.6 s</td>
     </tr>
   </tbody>
