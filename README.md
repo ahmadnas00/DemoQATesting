@@ -98,7 +98,7 @@ cd DemoQATesting</code></pre>
       <td><a href="#">UnitTests</a></td>
       <td>30</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>96.7%</td>
       <td>144.6 s</td>
