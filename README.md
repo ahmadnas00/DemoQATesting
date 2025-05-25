@@ -3,7 +3,7 @@
 </p>
 <hr>
 
-<h1 align="center">🧪 DemoQA Testing</h1>
+<h2 align="center">🧪 DemoQA Testing</h2>
 <h3 align="center">By: Ahmad Nassar</h3>
 
 
@@ -45,21 +45,22 @@
 
 <h3>📦 Installation Steps</h3>
 <ol>
-  <li><strong>Clone the repository</strong><br>
-    <code>git clone https://github.com/ahmadnas00/DemoQATesting.git</code><br>
-    <code>cd DemoQATesting</code>
+  <li><strong>Clone the repository</strong>
+    <pre><code class="language-bash">git clone https://github.com/ahmadnas00/DemoQATesting.git
+cd DemoQATesting</code></pre>
   </li>
-  <li><strong>Install dependencies</strong><br>
-    With Maven:<br>
-    <code>mvn clean install</code>
+  <li><strong>Install dependencies</strong> (using Maven)
+    <pre><code class="language-bash">mvn clean install</code></pre>
   </li>
   <li><strong>Ensure ChromeDriver is set up</strong><br>
-    <a href="https://chromedriver.chromium.org/downloads" target="_blank">Download ChromeDriver</a> and add it to your system PATH.
+    <a href="https://chromedriver.chromium.org/downloads" target="_blank">Download ChromeDriver</a> and add it to your system <code>PATH</code>.
   </li>
-  <li><strong>Run the tests</strong><br>
-    <code>mvn test</code>
+  <li><strong>Run the tests</strong>
+    <pre><code class="language-bash">mvn test</code></pre>
   </li>
 </ol>
+
+
 
 <h2>🧩 Improvements</h2>
 <hr>
