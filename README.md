@@ -58,7 +58,15 @@ cd DemoQATesting</code></pre>
   <li><strong>Run the tests</strong>
     <pre><code class="language-bash">mvn test</code></pre>
   </li>
+  <li><strong>Generate and view the test report</strong><br>
+    This project includes the <strong>Maven Surefire Report Plugin</strong> for generating HTML test reports.<br>
+    Run the following command to generate the report:
+    <pre><code class="language-bash">mvn surefire-report:report</code></pre>
+    The report will be saved under the <code>target/site</code> directory. Open <code>target/site/surefire-report.html</code> in your browser to view the test results.<br>
+    <em>Note:</em> You do not need to run <code>mvn test</code> separately before this command, as it compiles, tests, and then generates the report automatically.
+  </li>
 </ol>
+
 
 
 
