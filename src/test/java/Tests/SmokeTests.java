@@ -50,17 +50,11 @@ public class SmokeTests {
     }
 
     @Test
-    public void TestAddNewClient() {
-        assertTrue(mainpage.ClickAdd()
-                .AddFirstName(FIRST_NAME_5)
-                .AddLastName(LAST_NAME_5)
-                .AddEmail(EMAIL_5)
-                .AddAge(AGE_5)
-                .AddSalary(SALARY_5)
-                .AddDepartment(DEPARTMENT_5)
-                .Submit()
-                .SearchFor(FIRST_NAME_5).GetFirstOption().contains(FIRST_NAME_5));
+    public void TestEditFirstName() {
+        assertTrue(mainpage.SearchFor(FIRST_NAME_1).EditFirstOption().ChangeFirstName(FIRST_NAME_4)
+                .Submit().SearchFor(FIRST_NAME_4).GetFirstOption().contains(FIRST_NAME_4));
     }
+
 
     @AfterEach
     public void tearDown() {

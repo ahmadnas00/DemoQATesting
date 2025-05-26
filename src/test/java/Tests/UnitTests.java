@@ -141,11 +141,6 @@ public class UnitTests {
         assertTrue(mainpage.ClickDepartment().ClickDepartment().GetFirstOption().contains(DEPARTMENT_3));
     }
 
-    @Test
-    public void TestEditFirstName() {
-        assertTrue(mainpage.SearchFor(FIRST_NAME_1).EditFirstOption().ChangeFirstName(FIRST_NAME_4)
-                .Submit().SearchFor(FIRST_NAME_4).GetFirstOption().contains(FIRST_NAME_4));
-    }
 
     @Test
     public void TestEditLastName() {
@@ -189,6 +184,9 @@ public class UnitTests {
                 .Submit().SearchFor(FIRST_NAME_5).GetFirstOption().contains(FIRST_NAME_5));
     }
 
+
+
+
     @Test
     public void TestSameEmailDifferentUsers() {
         assertTrue(mainpage.ClickAdd()
@@ -202,6 +200,10 @@ public class UnitTests {
 
     }
 
+
+
+
+
     @Test
     public void EnterThreeDigitsAge() {
         assertFalse(mainpage.ClickAdd()
@@ -214,6 +216,8 @@ public class UnitTests {
                 .Submit().SearchFor(FIRST_NAME_5).GetFirstOption().contains(AGE_6));
     }
 
+
+
     @Test
     public void EnterEmptyInputs() {
         assertTrue(mainpage.ClickAdd()
@@ -225,6 +229,8 @@ public class UnitTests {
                 .AddDepartment("")
                 .Submit().isAddWindowOpen());
     }
+
+
 
     @Test
     public void EnterStringAge() {

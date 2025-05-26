@@ -1,9 +1,8 @@
 package org.example;
-
 import org.openqa.selenium.By;
 
-public class MainPageLocators {
 
+public class MainPageLocators {
     public static final String mainURL = "https://demoqa.com/webtables";
     public static final By SearchBox = By.id("searchBox");
     public static final By firstRow = By.cssSelector(".rt-tbody .rt-tr");

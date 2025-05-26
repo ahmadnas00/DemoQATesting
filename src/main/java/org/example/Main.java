@@ -22,7 +22,7 @@ public class Main {
     public Main(WebDriver driver) {
         this.driver = driver;
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.titleContains("DEMOQA"));
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleContains("DEMOQA"));
         } catch (TimeoutException e) {
             throw new IllegalStateException("Timeout waiting for page title to contain 'DEMOQA'. Current title: " + driver.getTitle());
         }
