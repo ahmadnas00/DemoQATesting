@@ -27,8 +27,16 @@
   <li>🔍 <strong>Automated Search Testing:</strong> Verifies search functionality with valid and invalid inputs.</li>
   <li>⏱️ <strong>Dynamic Element Handling:</strong> Waits for elements to appear using explicit waits.</li>
   <li>👻 <strong>Headless Execution:</strong> Tests can run in headless mode for faster execution.</li>
-  <li>🔁 <strong>Parameterized Tests:</strong> Supports test cases with various input values.</li>
 </ul>
+
+<h2>📋 Test Case Examples</h2>
+<hr>
+<ul>
+  <li>Verify that multiple users can register using the same email address</li>
+  <li>Check behavior when submitting the form with empty input fields</li>
+  <li>Validate input restrictions (e.g., entering letters in the "Age" field)</li>
+</ul>
+
 
 <h2>🛠️ Setup</h2>
 <hr>

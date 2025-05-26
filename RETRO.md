@@ -18,22 +18,20 @@
   <li>Documentation was clear and up to date</li>
 </ul>
 
-
 <h2>❌ What Didn’t Go Well</h2>
   <ul>
   <li>Locating elements with Selenium was challenging due to missing unique IDs; had to rely on class names or other attributes.</li>
-  <li>Time management was challenging due to overlapping tasks and a busy schedule</li>
   <li>Testing on the live version required a steady internet connection, which occasionally affected test stability compared to a local environment.</li>
 </ul>
 
 
 <h2>🔧 What to Improve</h2>
 <ul>
-  <li>Add detailed test reports with tools like Allure or ExtentReports</li>
-  <li>Expand the number of test cases for broader coverage</li>
-  <li>Include more edge case and negative scenario testing</li>
-  <li>Improve time estimation for test planning and execution</li>
+  <li>Expand the number of test cases to achieve broader coverage.</li>
+  <li>Include more edge cases and negative scenario testing.</li>
+  <li>Add support for testing on multiple browsers (e.g., Firefox, Edge, Safari).</li>
 </ul>
+
 
 
 <h2>💬 Team Feedback </h2>
