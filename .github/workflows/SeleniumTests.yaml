@@ -1,4 +1,4 @@
-name: Selenium tests
+name: Smoke Tests (Chrome)
 
 on:
   workflow_dispatch:
@@ -9,21 +9,10 @@ on:
         description: Grid to run tests
         default: https://demoqa.com/webtables
 
-      chrome_131_0:
-        description: 'Chrome (131.0)'
-        required: false
-        type: boolean
-
-      run_smoke_tests:
-        description: 'Run only SmokeTests'
-        required: false
-        type: boolean
-
 jobs:
-  TestChrome_131_0:
-    name: Test Chrome 131.0
+  SmokeTests_Chrome:
+    name: Run SmokeTests on Chrome
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.chrome_131_0 == 'true' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,13 +23,9 @@ jobs:
           distribution: 'temurin'
           java-version: '23'
 
-      - name: Run Tests
+      - name: Run SmokeTests
         run: |
           export BROWSER=chrome
           export GRID_URL=${{ github.event.inputs.grid_url }}
 
-          if [ "${{ github.event.inputs.run_smoke_tests }}" == "true" ]; then
-            mvn test -q -Dgroups=SmokeTests
-          else
-            mvn test -q
-          fi
+          mvn test -q -Dgroups=SmokeTests
